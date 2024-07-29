@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://djy5nstnuenwg"]
+
+[ext_resource type="Texture2D" uid="uid://cbtjenfwnae6j" path="res://art/picture/icon.png" id="1_rlsuy"]
+[ext_resource type="Script" path="res://scences/door/icon.gd" id="2_ku8kl"]
+[ext_resource type="PackedScene" uid="uid://df7denbv2md5u" path="res://scences/detecter/detecter.tscn" id="3_gnax3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hos6b"]
+size = Vector2(471.177, 443.22)
+
+[node name="Icon" type="Sprite2D"]
+self_modulate = Color(0.954337, 0.86577, 0.830013, 1)
+position = Vector2(893, 147)
+scale = Vector2(0.191011, 0.187266)
+texture = ExtResource("1_rlsuy")
+region_enabled = true
+region_rect = Rect2(0, 0, 536, 472)
+script = ExtResource("2_ku8kl")
+
+[node name="Detecter" parent="." instance=ExtResource("3_gnax3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detecter"]
+visible = false
+position = Vector2(0, 2.66998)
+shape = SubResource("RectangleShape2D_hos6b")
+
+[connection signal="body_entered" from="Detecter" to="." method="_on_detecter_body_entered"]

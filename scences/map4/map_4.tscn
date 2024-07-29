@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://hk8tu0hqu8wu"]
+
+[ext_resource type="Script" path="res://scences/map4/map_4.gd" id="1_54ceg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4bsoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp6fo"]
+size = Vector2(1, 1)
+
+[node name="map4" type="Sprite2D"]
+self_modulate = Color(0.933333, 0.968627, 0.94902, 1)
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_4bsoq")
+script = ExtResource("1_54ceg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2.38419e-08, -1.58946e-08)
+shape = SubResource("RectangleShape2D_hp6fo")
+debug_color = Color(0, 0.262745, 0.701961, 0.419608)

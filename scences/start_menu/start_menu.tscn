@@ -1,0 +1,235 @@
+[gd_scene load_steps=12 format=3 uid="uid://3qpuofr5h5dy"]
+
+[ext_resource type="Script" path="res://scences/start_menu/start_menu.gd" id="1_wtrx0"]
+[ext_resource type="Script" path="res://scences/level7/Manager_fu.gd" id="2_b80qy"]
+[ext_resource type="FontFile" uid="uid://datgd8hj606f6" path="res://art/fonts/山字瓜子体.ttf" id="2_jcorn"]
+[ext_resource type="PackedScene" uid="uid://ndfjvi5bryv3" path="res://scences/volume_slider/h_slider.tscn" id="3_0rmvv"]
+[ext_resource type="FontFile" uid="uid://bhl4fa2xpoemj" path="res://art/fonts/ark-pixel-font-10px-proportional-otf-v2023.06.12/ark-pixel-10px-proportional-ja.otf" id="3_nriy5"]
+[ext_resource type="FontFile" uid="uid://bqdjytgvxwrpb" path="res://art/fonts/ToneOZ-Tsuipita-TC（仅汉字）.ttf" id="4_iyns8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h1epm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wvuxx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xe00y"]
+
+[sub_resource type="FontVariation" id="FontVariation_w74jq"]
+fallbacks = Array[Font]([ExtResource("3_nriy5")])
+base_font = ExtResource("2_jcorn")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgqt1"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wtrx0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.854902, 0.937255, 0.933333, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_h1epm")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+self_modulate = Color(0.921147, 0.658674, 0.382078, 1)
+layout_mode = 0
+offset_left = 116.0
+offset_top = 94.0
+offset_right = 304.0
+offset_bottom = 273.0
+texture = SubResource("CanvasTexture_wvuxx")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+self_modulate = Color(0.917249, 0.668974, 0.236884, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 678.0
+offset_right = -1532.0
+offset_bottom = -161.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_wvuxx")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(0.852656, 0.672732, 0.622695, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 197.0
+offset_top = 377.0
+offset_right = -1368.0
+offset_bottom = -412.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_xe00y")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+self_modulate = Color(0.65849, 0.743921, 0.706089, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1323.0
+offset_top = 241.0
+offset_right = -44.0
+offset_bottom = -430.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_xe00y")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+self_modulate = Color(0.780392, 0.458824, 0.301961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1208.0
+offset_top = 439.0
+offset_right = -447.0
+offset_bottom = -396.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_xe00y")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+self_modulate = Color(0.705759, 0.504923, 0.340649, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1482.0
+offset_top = 626.0
+offset_right = -61.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_xe00y")
+
+[node name="Label2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 109.0
+offset_right = 1194.0
+offset_bottom = 292.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_w74jq")
+theme_override_font_sizes/font_size = 128
+text = "开始游戏"
+flat = true
+
+[node name="UIHover" type="Node" parent="Label2"]
+script = ExtResource("2_b80qy")
+anim_type = 3
+hover_color = Color(0.611825, 0.518057, 0.41278, 1)
+
+[node name="Label" type="Button" parent="."]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 371.0
+offset_right = 1204.0
+offset_bottom = 554.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_jcorn")
+theme_override_font_sizes/font_size = 128
+text = "选择关卡"
+flat = true
+
+[node name="UIHover2" type="Node" parent="Label"]
+script = ExtResource("2_b80qy")
+anim_type = 3
+hover_color = Color(0.611825, 0.518057, 0.41278, 1)
+
+[node name="Label3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 660.0
+offset_right = 1199.0
+offset_bottom = 843.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_jcorn")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tgqt1")
+text = "设置"
+flat = true
+
+[node name="UIHover3" type="Node" parent="Label3"]
+script = ExtResource("2_b80qy")
+anim_type = 3
+hover_color = Color(0.611825, 0.518057, 0.41278, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" parent="Panel" instance=ExtResource("3_0rmvv")]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 267.0
+offset_right = 1402.0
+offset_bottom = 338.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 252.0
+offset_right = 347.0
+offset_bottom = 362.0
+theme_override_colors/font_outline_color = Color(0.756612, 0.500824, 0.162587, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_iyns8")
+theme_override_font_sizes/font_size = 80
+text = "音量："
+
+[node name="lang" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 390.0
+offset_right = 444.0
+offset_bottom = 500.0
+theme_override_colors/font_outline_color = Color(0.756612, 0.500824, 0.162587, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_iyns8")
+theme_override_font_sizes/font_size = 80
+text = "Language:"
+
+[node name="OptionButton" type="OptionButton" parent="Panel"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 396.0
+offset_right = 773.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("4_iyns8")
+theme_override_font_sizes/font_size = 64
+language = "zh_CN"
+item_count = 3
+popup/item_0/text = "Chinese"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+popup/item_2/text = "666"
+popup/item_2/id = 2
+
+[connection signal="pressed" from="Label2" to="." method="_on_label_2_pressed"]
+[connection signal="pressed" from="Label" to="." method="_on_label_pressed"]
+[connection signal="pressed" from="Label3" to="." method="_on_label_3_pressed"]
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+[connection signal="item_selected" from="Panel/OptionButton" to="." method="_on_option_button_item_selected"]

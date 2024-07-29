@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bd12rjvyewtti"
+
+[deps]
+
+files=["res://art/tanslation/tanslation_file.zh.translation", "res://art/tanslation/tanslation_file.en.translation"]
+
+source_file="res://art/tanslation/tanslation_file.csv"
+dest_files=["res://art/tanslation/tanslation_file.zh.translation", "res://art/tanslation/tanslation_file.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1ub8gfqurium"]
+
+[ext_resource type="TileSet" uid="uid://3fafo6dgwlkd" path="res://data/level_1.tres" id="1_1uvbt"]
+[ext_resource type="PackedScene" uid="uid://b4mpentva5x4p" path="res://scences/death/death.tscn" id="2_r0kra"]
+[ext_resource type="PackedScene" uid="uid://djy5nstnuenwg" path="res://scences/door/icon.tscn" id="3_71bj5"]
+[ext_resource type="PackedScene" uid="uid://bkmpfvfpqe3c" path="res://scences/player/player.tscn" id="4_ie7w2"]
+[ext_resource type="PackedScene" uid="uid://df7denbv2md5u" path="res://scences/detecter/detecter.tscn" id="5_s22ei"]
+
+[node name="levels" type="Node2D"]
+
+[node name="Manager" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_1uvbt")
+format = 2
+
+[node name="Icon" parent="." instance=ExtResource("3_71bj5")]
+
+[node name="player" parent="." instance=ExtResource("4_ie7w2")]
+
+[node name="death" parent="." instance=ExtResource("2_r0kra")]
+
+[node name="Detecter" parent="." instance=ExtResource("5_s22ei")]

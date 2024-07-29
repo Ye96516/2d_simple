@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba8fj8h3446mg"]
+
+[ext_resource type="Script" path="res://scences/board/board.gd" id="1_iw5mt"]
+[ext_resource type="PackedScene" uid="uid://df7denbv2md5u" path="res://scences/detecter/detecter.tscn" id="2_aqtie"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ruis6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23em1"]
+size = Vector2(63, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e132l"]
+size = Vector2(62, 6)
+
+[node name="board" type="AnimatableBody2D"]
+collision_mask = 2
+script = ExtResource("1_iw5mt")
+
+[node name="board" type="Sprite2D" parent="."]
+self_modulate = Color(0.0862745, 0.380392, 0.670588, 1)
+scale = Vector2(64, 32)
+texture = SubResource("CanvasTexture_ruis6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_23em1")
+debug_color = Color(0.700348, 0.356567, 0.85833, 0.42)
+
+[node name="Detecter" parent="." instance=ExtResource("2_aqtie")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detecter"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_e132l")
+
+[connection signal="body_entered" from="Detecter" to="." method="_on_detecter_body_entered"]

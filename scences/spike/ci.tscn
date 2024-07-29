@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dth6d45yqrltb"]
+
+[ext_resource type="Shader" path="res://shader/heiWu.gdshader" id="1_u5quk"]
+[ext_resource type="Texture2D" uid="uid://ct2e7jbv1bbec" path="res://art/picture/ZanZhu.png" id="2_nt2vm"]
+[ext_resource type="PackedScene" uid="uid://b4mpentva5x4p" path="res://scences/death/death.tscn" id="3_plyda"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txw7j"]
+shader = ExtResource("1_u5quk")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xmckk"]
+a = Vector2(-75.4015, 784.562)
+b = Vector2(-81.1049, -348.981)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q1bnt"]
+a = Vector2(-210, 541.367)
+b = Vector2(0.000320435, -533.164)
+
+[node name="ci" type="Sprite2D"]
+material = SubResource("ShaderMaterial_txw7j")
+position = Vector2(-47.0001, 668)
+scale = Vector2(0.3, 0.365741)
+texture = ExtResource("2_nt2vm")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 1080)
+
+[node name="death" parent="." instance=ExtResource("3_plyda")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2(-360, -226.937)
+rotation = -0.287293
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("SegmentShape2D_xmckk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death"]
+shape = SubResource("SegmentShape2D_q1bnt")

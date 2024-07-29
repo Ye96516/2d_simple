@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq050ae8tiked"]
+
+[ext_resource type="Script" path="res://scences/yun/Yun1.gd" id="1_fo4x5"]
+
+[node name="Yun1" type="StaticBody2D"]
+position = Vector2(148, 83)
+script = ExtResource("1_fo4x5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-50, -14, -32, -21, -14, -21, 4, -25, 24, -26, 37, -24, 46, -16, 45, -3, 38, 5, 31, 14, 15, 10, 9, 10, 4, 15, -3, 18, -16, 20, -33, 14, -49, 9, -56, -1, -56, -11)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.872586, 0.674858, 0.659741, 1)

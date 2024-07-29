@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://8vy4ko5o3drj"]
+
+[sub_resource type="Curve" id="Curve_t136r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.150831), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="explosion" type="CPUParticles2D"]
+emitting = false
+amount = 140
+explosiveness = 0.85
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 170.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_t136r")

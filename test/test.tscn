@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdq3lq6kbm5k5"]
+
+[ext_resource type="Script" path="res://test/test.gd" id="1_p6mr5"]
+[ext_resource type="Texture2D" uid="uid://bfklg2jb0w0i3" path="res://test/icon.svg" id="2_vaqkt"]
+[ext_resource type="PackedScene" uid="uid://bkmpfvfpqe3c" path="res://scences/player/player.tscn" id="3_wwlmr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pvoqw"]
+a = Vector2(797, 289)
+b = Vector2(-753, 298)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t0jw8"]
+a = Vector2(-749, -39)
+b = Vector2(-753, 298)
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_p6mr5")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_pvoqw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_t0jw8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(40, 364)
+scale = Vector2(12.0781, 1)
+texture = ExtResource("2_vaqkt")
+
+[node name="player" parent="." instance=ExtResource("3_wwlmr")]
+position = Vector2(-114, 238)
+
+[connection signal="draw" from="." to="." method="_on_draw"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://b02ce7xw8xk48"]
+
+[ext_resource type="PackedScene" uid="uid://d1ub8gfqurium" path="res://scences/levels_normal/levels.tscn" id="1_7mard"]
+[ext_resource type="Script" path="res://scences/level7/Manager.gd" id="2_3nclf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_or6nr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_c2s8d"]
+a = Vector2(-261, -3)
+b = Vector2(1532, -3)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4rgx8"]
+a = Vector2(-197, 210)
+b = Vector2(1554, 211)
+
+[node name="level7" instance=ExtResource("1_7mard")]
+
+[node name="Manager1" type="Node2D" parent="." index="0"]
+script = ExtResource("2_3nclf")
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(-262098, 0, 65536)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_mirroring = Vector2(1800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" index="0"]
+self_modulate = Color(0.640067, 0.79166, 0.802589, 1)
+z_index = -1
+position = Vector2(909.75, 661.25)
+scale = Vector2(1820.5, 1323.5)
+texture = SubResource("CanvasTexture_or6nr")
+
+[node name="Icon" parent="." index="4"]
+position = Vector2(1584, 134)
+
+[node name="player" parent="." index="5"]
+position = Vector2(1484, -158)
+
+[node name="Camera2D" type="Camera2D" parent="player" index="3"]
+offset = Vector2(0, -200)
+position_smoothing_enabled = true
+
+[node name="Detecter" parent="." index="7"]
+visible = false
+collision_layer = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detecter" index="0"]
+position = Vector2(273, 800)
+shape = SubResource("SegmentShape2D_c2s8d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(246, 585)
+shape = SubResource("SegmentShape2D_4rgx8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D" index="2"]
+z_index = 2
+color = Color(0.851568, 0.653359, 0.650462, 1)
+
+[node name="有小坡的多边" type="CollisionPolygon2D" parent="StaticBody2D" index="3"]
+build_mode = 1
+polygon = PackedVector2Array(1813, 794, 1917, 790, 2023, 790, 2117, 782, 2237, 773, 2383, 770, 2506, 755, 2601, 766, 2703, 758, 2778, 756, 2951, 763, 3158, 767, 3215, 762, 3252, 753, 3311, 740, 3391, 724, 3486, 719, 3549, 730, 3602, 766, 3647, 776, 3736, 778, 3850, 779, 3939, 775, 4048, 783, 4135, 776, 4225, 783, 2763, 1153)

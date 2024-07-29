@@ -1,0 +1,188 @@
+[gd_scene load_steps=13 format=3 uid="uid://cm7wyrpg2f01s"]
+
+[ext_resource type="PackedScene" uid="uid://d1ub8gfqurium" path="res://scences/levels_normal/levels.tscn" id="1_jlnjy"]
+[ext_resource type="Script" path="res://scences/level5/Manager.gd" id="2_ykpvg"]
+[ext_resource type="PackedScene" uid="uid://df7denbv2md5u" path="res://scences/detecter/detecter.tscn" id="3_f4fa5"]
+[ext_resource type="PackedScene" uid="uid://dth6d45yqrltb" path="res://scences/spike/ci.tscn" id="3_fr0ga"]
+[ext_resource type="PackedScene" uid="uid://pwva64glnbff" path="res://scences/spikes/spikes.tscn" id="3_kifje"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gw4th"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3y7ka"]
+a = Vector2(1691, -55)
+b = Vector2(-187, -45)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q3hck"]
+
+[sub_resource type="Animation" id="Animation_wykpp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_43dqu"]
+resource_name = "dong"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 14), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_soac4"]
+_data = {
+"RESET": SubResource("Animation_wykpp"),
+"dong": SubResource("Animation_43dqu")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekliu"]
+size = Vector2(129, 17)
+
+[node name="level5" instance=ExtResource("1_jlnjy")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(0.547562, 0.684363, 0.724179, 0.960784)
+position = Vector2(910.5, 510.5)
+scale = Vector2(2001, 1337)
+texture = SubResource("CanvasTexture_gw4th")
+
+[node name="Manager" parent="." index="1"]
+script = ExtResource("2_ykpvg")
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(1638453, 0, 65536, 1638454, 0, 65536, 1638455, 0, 65536, 1638452, 0, 65536, 1376256, 0, 65536, 1376257, 0, 65536, 1376258, 0, 65536, 1376259, 0, 65536, 65535, 0, 65536, 131071, 0, 65536, 196607, 0, 65536, 262143, 0, 65536, 327679, 0, 65536, 393215, 0, 65536, 458751, 0, 65536, 524287, 0, 65536, 589823, 0, 65536, 655359, 0, 65536, 720895, 0, 65536, 786431, 0, 65536, 851967, 0, 65536, 917503, 0, 65536, 983039, 0, 65536, 1048575, 0, 65536, 1114111, 0, 65536, 1179647, 0, 65536, 1245183, 0, 65536, 1310719, 0, 65536, 1376255, 0, 65536, 1441791, 0, 65536, 1507327, 0, 65536, 1572863, 0, 65536, 1638399, 0, 65536, 1703935, 0, 65536, 1769471, 0, 65536, 1835007, 0, 65536, 1900543, 0, 65536, 1966079, 0, 65536, 2031615, 0, 65536, 2097151, 0, 65536, 2162687, 0, 65536, 2228223, 0, 65536, 2293759, 0, 65536, 2359295, 0, 65536, 56, 0, 65536, 65592, 0, 65536, 131128, 0, 65536, 196664, 0, 65536, 262200, 0, 65536, 327736, 0, 65536, 393272, 0, 65536, 458808, 0, 65536, 524344, 0, 65536, 589880, 0, 65536, 655416, 0, 65536, 720952, 0, 65536, 786488, 0, 65536, 852024, 0, 65536, 917560, 0, 65536, 983096, 0, 65536, 1048632, 0, 65536, 1114168, 0, 65536, 1179704, 0, 65536, 1245240, 0, 65536, 1310776, 0, 65536, 1376312, 0, 65536, 1441848, 0, 65536, 1507384, 0, 65536, 1572920, 0, 65536, 1638456, 0, 65536, 1703992, 0, 65536, 1769528, 0, 65536, 1835064, 0, 65536, 1900600, 0, 65536, 1966136, 0, 65536, 2031672, 0, 65536, 2097208, 0, 65536, 2162744, 0, 65536, 2228280, 0, 65536, 2293816, 0, 65536)
+
+[node name="Icon" parent="." index="3"]
+position = Vector2(66, 749)
+rotation = 3.14159
+next_level_path = "res://scences/level6/level_6.tscn"
+
+[node name="player" parent="." index="4"]
+position = Vector2(1728, 774)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death" index="0"]
+position = Vector2(166, 1195)
+shape = SubResource("SegmentShape2D_3y7ka")
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detecter" index="0"]
+position = Vector2(389, 1118)
+shape = SubResource("WorldBoundaryShape2D_q3hck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_soac4")
+}
+
+[node name="spikes" parent="." index="8" instance=ExtResource("3_kifje")]
+
+[node name="spikes2" type="Node2D" parent="." index="9"]
+position = Vector2(332, -508)
+
+[node name="ci" parent="spikes2" index="0" instance=ExtResource("3_fr0ga")]
+position = Vector2(1, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci2" parent="spikes2" index="1" instance=ExtResource("3_fr0ga")]
+position = Vector2(15, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci3" parent="spikes2" index="2" instance=ExtResource("3_fr0ga")]
+position = Vector2(30, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci4" parent="spikes2" index="3" instance=ExtResource("3_fr0ga")]
+position = Vector2(45, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci5" parent="spikes2" index="4" instance=ExtResource("3_fr0ga")]
+position = Vector2(60, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci6" parent="spikes2" index="5" instance=ExtResource("3_fr0ga")]
+position = Vector2(75, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci7" parent="spikes2" index="6" instance=ExtResource("3_fr0ga")]
+position = Vector2(90, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci8" parent="spikes2" index="7" instance=ExtResource("3_fr0ga")]
+position = Vector2(105, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="spikes3" type="Node2D" parent="." index="10"]
+position = Vector2(1541, -536)
+
+[node name="ci" parent="spikes3" index="0" instance=ExtResource("3_fr0ga")]
+position = Vector2(1, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci2" parent="spikes3" index="1" instance=ExtResource("3_fr0ga")]
+position = Vector2(15, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci3" parent="spikes3" index="2" instance=ExtResource("3_fr0ga")]
+position = Vector2(30, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci4" parent="spikes3" index="3" instance=ExtResource("3_fr0ga")]
+position = Vector2(45, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci5" parent="spikes3" index="4" instance=ExtResource("3_fr0ga")]
+position = Vector2(60, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci6" parent="spikes3" index="5" instance=ExtResource("3_fr0ga")]
+position = Vector2(75, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci7" parent="spikes3" index="6" instance=ExtResource("3_fr0ga")]
+position = Vector2(90, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci8" parent="spikes3" index="7" instance=ExtResource("3_fr0ga")]
+position = Vector2(105, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="Detecter2" parent="." index="11" instance=ExtResource("3_f4fa5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detecter2" index="0"]
+position = Vector2(64.5, 662.5)
+shape = SubResource("RectangleShape2D_ekliu")
+
+[connection signal="body_entered" from="Detecter" to="Manager" method="_on_detecter_body_entered"]
+[connection signal="body_entered" from="Detecter2" to="Manager" method="_on_detecter_2_body_entered"]

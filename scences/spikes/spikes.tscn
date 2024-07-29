@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://pwva64glnbff"]
+
+[ext_resource type="PackedScene" uid="uid://dth6d45yqrltb" path="res://scences/spike/ci.tscn" id="1_p4krm"]
+
+[node name="spikes" type="Node2D"]
+
+[node name="ci" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(1, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci2" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(15, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci3" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(30, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci4" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(45, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci5" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(60, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci6" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(75, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci7" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(90, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)
+
+[node name="ci8" parent="." instance=ExtResource("1_p4krm")]
+position = Vector2(105, 665)
+rotation = -3.14159
+scale = Vector2(0.0269892, 0.0130374)

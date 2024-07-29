@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4e8ca74jmkjo"]
+
+[ext_resource type="TileSet" uid="uid://3fafo6dgwlkd" path="res://data/level_1.tres" id="1_omapf"]
+[ext_resource type="PackedScene" uid="uid://bkmpfvfpqe3c" path="res://scences/player/player.tscn" id="2_3wvgq"]
+[ext_resource type="Script" path="res://scences/level3/Manger.gd" id="2_6dnon"]
+[ext_resource type="PackedScene" uid="uid://djy5nstnuenwg" path="res://scences/door/icon.tscn" id="3_v40o7"]
+[ext_resource type="PackedScene" uid="uid://b4mpentva5x4p" path="res://scences/death/death.tscn" id="4_tqfu3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o7lmn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0f7sa"]
+normal = Vector2(-0.0285598, -0.999592)
+distance = -224.994
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t8aqi"]
+normal = Vector2(0, 1)
+
+[node name="level3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.910707, 0.783209, 0.747855, 0.960784)
+position = Vector2(919, 432)
+scale = Vector2(1984, 1180)
+texture = SubResource("CanvasTexture_o7lmn")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_omapf")
+format = 2
+layer_0/tile_data = PackedInt32Array(1245184, 0, 65536, 1245185, 0, 65536, 1245186, 0, 65536, 1245187, 0, 65536, 1245235, 0, 65536, 1245236, 0, 65536, 1245237, 0, 65536, 1245238, 0, 65536, 1245239, 0, 65536, 5, 0, 65536, 6, 0, 65536, 7, 0, 65536, 8, 0, 65536, 9, 0, 65536, 65535, 0, 65536, 131071, 0, 65536, 196607, 0, 65536, 262143, 0, 65536, 327679, 0, 65536, 393215, 0, 65536, 458751, 0, 65536, 524287, 0, 65536, 589823, 0, 65536, 655359, 0, 65536, 720895, 0, 65536, 786431, 0, 65536, 851967, 0, 65536, 917503, 0, 65536, 983039, 0, 65536, 1048575, 0, 65536, 1114111, 0, 65536, 1179647, 0, 65536, 1245183, 0, 65536, 1310719, 0, 65536, 1376255, 0, 65536, 1310776, 0, 65536, 1245240, 0, 65536, 1179704, 0, 65536, 1114168, 0, 65536, 1048632, 0, 65536, 983096, 0, 65536, 917560, 0, 65536, 852024, 0, 65536, 786488, 0, 65536, 720952, 0, 65536, 655416, 0, 65536, 589880, 0, 65536, 524344, 0, 65536, 458808, 0, 65536, 393272, 0, 65536, 327736, 0, 65536, 262200, 0, 65536, 196664, 0, 65536, 131128, 0, 65536, 65592, 0, 65536, 56, 0, 65536, 1245201, 0, 65536, 1245202, 0, 65536, 1245203, 0, 65536, 1245204, 0, 65536, 1245200, 0, 65536, 27, 0, 65536, 28, 0, 65536, 30, 0, 65536, 29, 0, 65536, 31, 0, 65536, 1245220, 0, 65536, 1245221, 0, 65536, 1245222, 0, 65536, 1245224, 0, 65536, 1245223, 0, 65536, 1245225, 0, 65536, 49, 0, 65536, 50, 0, 65536, 51, 0, 65536, 52, 0, 65536, 53, 0, 65536, 54, 0, 65536, 55, 0, 65536)
+
+[node name="Manger" type="Node" parent="."]
+script = ExtResource("2_6dnon")
+
+[node name="player" parent="." instance=ExtResource("2_3wvgq")]
+position = Vector2(44, 561)
+
+[node name="Icon" parent="." instance=ExtResource("3_v40o7")]
+position = Vector2(1719, 559)
+next_level_path = "res://scences/level4/level_4.tscn"
+
+[node name="death" parent="." instance=ExtResource("4_tqfu3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2(232, 741)
+shape = SubResource("WorldBoundaryShape2D_0f7sa")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death"]
+position = Vector2(335, -73)
+shape = SubResource("WorldBoundaryShape2D_t8aqi")

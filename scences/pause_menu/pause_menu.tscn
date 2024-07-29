@@ -1,0 +1,156 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgh3qt1yi4ix3"]
+
+[ext_resource type="Script" path="res://scences/pause_menu/pause_menu.gd" id="1_u8ydq"]
+[ext_resource type="FontFile" uid="uid://bqdjytgvxwrpb" path="res://art/fonts/ToneOZ-Tsuipita-TC（仅汉字）.ttf" id="2_hq4bw"]
+[ext_resource type="PackedScene" uid="uid://ndfjvi5bryv3" path="res://scences/volume_slider/h_slider.tscn" id="3_rrkeh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e6hk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vjmq"]
+bg_color = Color(0.750587, 0.556679, 0.353204, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo8o2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c5pt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34w26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkvqf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4pt8o"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_u8ydq")
+
+[node name="full_screen" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7e6hk")
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 579.0
+offset_top = 83.0
+offset_right = 1251.0
+offset_bottom = 891.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vjmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 120
+text = "主页"
+flat = true
+
+[node name="Control2" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 120
+text = "选择菜单"
+flat = true
+
+[node name="Control3" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bo8o2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4c5pt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34w26")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tkvqf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4pt8o")
+text = "设置"
+flat = true
+
+[node name="Control4" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 252.0
+offset_right = 347.0
+offset_bottom = 362.0
+theme_override_colors/font_outline_color = Color(0.756612, 0.500824, 0.162587, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hq4bw")
+theme_override_font_sizes/font_size = 80
+text = "音量："
+
+[node name="HSlider" parent="Panel2" instance=ExtResource("3_rrkeh")]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 267.0
+offset_right = 1444.0
+offset_bottom = 325.0
+
+[node name="lang" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 390.0
+offset_right = 444.0
+offset_bottom = 500.0
+theme_override_colors/font_outline_color = Color(0.756612, 0.500824, 0.162587, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hq4bw")
+theme_override_font_sizes/font_size = 80
+text = "Language:"
+
+[node name="OptionButton" type="OptionButton" parent="Panel2"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 396.0
+offset_right = 773.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("2_hq4bw")
+theme_override_font_sizes/font_size = 64
+item_count = 3
+popup/item_0/text = "ch"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+popup/item_2/text = "666"
+popup/item_2/id = 2
+
+[connection signal="gui_input" from="full_screen" to="." method="_on_full_screen_gui_input"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="gui_input" from="Panel2" to="." method="_on_panel_2_gui_input"]
+[connection signal="item_selected" from="Panel2/OptionButton" to="." method="_on_option_button_item_selected"]

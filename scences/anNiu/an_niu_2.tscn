@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://duf23bdd5esff"]
+
+[ext_resource type="Texture2D" uid="uid://dshcwvba60jj1" path="res://art/picture/梯子.png" id="1_0li55"]
+[ext_resource type="Script" path="res://scences/anNiu/an_niu_2.gd" id="1_41gnk"]
+[ext_resource type="PackedScene" uid="uid://df7denbv2md5u" path="res://scences/detecter/detecter.tscn" id="2_uum08"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_32ff8"]
+a = Vector2(-23, 5)
+b = Vector2(-41, 43)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0p7ea"]
+a = Vector2(-23, 5)
+b = Vector2(-4, 44)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6cw5q"]
+a = Vector2(-275, 62.5)
+b = Vector2(250, 62.5)
+
+[sub_resource type="Animation" id="Animation_n8r6f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.08, 0.08)]
+}
+
+[sub_resource type="Animation" id="Animation_ii4ox"]
+resource_name = "dong"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.08, 0.08), Vector2(0.08, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_xvpe6"]
+resource_name = "jing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 37), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.08, 0.01), Vector2(0.08, 0.08)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h48wl"]
+_data = {
+"RESET": SubResource("Animation_n8r6f"),
+"dong": SubResource("Animation_ii4ox"),
+"jing": SubResource("Animation_xvpe6")
+}
+
+[node name="anNiu2" type="Node2D"]
+script = ExtResource("1_41gnk")
+
+[node name="anNiu" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_0li55")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="anNiu"]
+scale = Vector2(12.5, 12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="anNiu/StaticBody2D"]
+shape = SubResource("SegmentShape2D_32ff8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="anNiu/StaticBody2D"]
+position = Vector2(45, -1)
+shape = SubResource("SegmentShape2D_0p7ea")
+
+[node name="Detecter" parent="anNiu" instance=ExtResource("2_uum08")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="anNiu/Detecter"]
+shape = SubResource("SegmentShape2D_6cw5q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../anNiu")
+libraries = {
+"": SubResource("AnimationLibrary_h48wl")
+}
+
+[connection signal="body_entered" from="anNiu/Detecter" to="." method="_on_detecter_body_entered"]
+[connection signal="body_exited" from="anNiu/Detecter" to="." method="_on_detecter_body_exited"]

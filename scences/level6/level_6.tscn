@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://g3myci3cg1x"]
+
+[ext_resource type="PackedScene" uid="uid://d1ub8gfqurium" path="res://scences/levels_normal/levels.tscn" id="1_lppps"]
+[ext_resource type="Script" path="res://scences/level6/Manager.gd" id="2_6ndm8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yvst7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_quv7t"]
+a = Vector2(1902, 58)
+b = Vector2(-2, 60)
+
+[node name="level6" instance=ExtResource("1_lppps")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(0.699584, 0.873272, 0.655789, 0.960784)
+position = Vector2(909, 507)
+scale = Vector2(2001, 1047)
+texture = SubResource("CanvasTexture_yvst7")
+
+[node name="tagging" type="Label" parent="." index="1"]
+z_index = 2
+offset_left = 433.0
+offset_top = 366.0
+offset_right = 1233.0
+offset_bottom = 503.0
+theme_override_colors/font_outline_color = Color(0.560784, 0.537255, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "不妨试试拖动鼠标"
+
+[node name="blank" type="Label" parent="." index="2"]
+z_index = 2
+offset_left = 623.0
+offset_top = 565.0
+offset_right = 1023.0
+offset_bottom = 702.0
+theme_override_colors/font_outline_color = Color(0.560784, 0.537255, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "空格自杀"
+
+[node name="Manager" parent="." index="3"]
+script = ExtResource("2_6ndm8")
+
+[node name="TileMap" parent="." index="4"]
+layer_0/tile_data = PackedInt32Array(65535, 0, 131072, 2031672, 0, 131072, 1966136, 0, 131072, 1900600, 0, 131072, 1835064, 0, 131072, 1769528, 0, 131072, 1703992, 0, 131072, 1638456, 0, 131072, 1572920, 0, 131072, 1507384, 0, 131072, 1441848, 0, 131072, 1376312, 0, 131072, 1310776, 0, 131072, 1245240, 0, 131072, 1179704, 0, 131072, 1114168, 0, 131072, 1048632, 0, 131072, 983096, 0, 131072, 917560, 0, 131072, 852024, 0, 131072, 786488, 0, 131072, 720952, 0, 131072, 655416, 0, 131072, 589880, 0, 131072, 524344, 0, 131072, 458808, 0, 131072, 393272, 0, 131072, 327736, 0, 131072, 262200, 0, 131072, 196664, 0, 131072, 131128, 0, 131072, 65592, 0, 131072, 56, 0, 131072, 131071, 0, 131072, 196607, 0, 131072, 262143, 0, 131072, 327679, 0, 131072, 393215, 0, 131072, 458751, 0, 131072, 524287, 0, 131072, 589823, 0, 131072, 655359, 0, 131072, 720895, 0, 131072, 786431, 0, 131072, 851967, 0, 131072, 917503, 0, 131072, 2097151, 0, 131072, 983039, 0, 131072, 1048575, 0, 131072, 1114111, 0, 131072, 1179647, 0, 131072, 1245183, 0, 131072, 1310719, 0, 131072, 1376255, 0, 131072, 1441791, 0, 131072, 1507327, 0, 131072, 1572863, 0, 131072, 1638399, 0, 131072, 1703935, 0, 131072, 1769471, 0, 131072, 1835007, 0, 131072, 1900543, 0, 131072, 1966079, 0, 131072, 2031615, 0, 131072, 1900592, 0, 65536, 1900593, 0, 65536, 1900594, 0, 65536, 1900595, 0, 65536, 1835059, 0, 65536, 1769523, 0, 65536, 1703987, 0, 65536, 1638451, 0, 65536, 1638447, 0, 65536, 1703983, 0, 65536, 1769519, 0, 65536, 1835055, 0, 65536, 1900591, 0, 65536, -1, 0, 131072, -65536, 0, 131072, -65535, 0, 131072, -65519, 0, 131072, -65518, 0, 131072, -65517, 0, 131072, -65516, 0, 131072, -65515, 0, 131072, -65514, 0, 131072, -65513, 0, 131072, -65512, 0, 131072, -65511, 0, 131072, -65510, 0, 131072, -65509, 0, 131072, -65508, 0, 131072, -65534, 0, 131072, -65533, 0, 131072, -65532, 0, 131072, -65531, 0, 131072, -65530, 0, 131072, -65529, 0, 131072, -65528, 0, 131072, -65527, 0, 131072, -65526, 0, 131072, -65525, 0, 131072, -65524, 0, 131072, -65523, 0, 131072, -65522, 0, 131072, -65521, 0, 131072, -65520, 0, 131072, -65507, 0, 131072, -65506, 0, 131072, -65505, 0, 131072, -65504, 0, 131072, -65503, 0, 131072, -65502, 0, 131072, -65501, 0, 131072, -65500, 0, 131072, -65499, 0, 131072, -65498, 0, 131072, -65497, 0, 131072, -65496, 0, 131072, -65495, 0, 131072, -65494, 0, 131072, -65493, 0, 131072, -65492, 0, 131072, -65491, 0, 131072, -65490, 0, 131072, -65489, 0, 131072, -65481, 0, 131072, -65480, 0, 131072, -65482, 0, 131072, -65483, 0, 131072, -65484, 0, 131072, -65485, 0, 131072, -65486, 0, 131072, -65487, 0, 131072, -65488, 0, 131072)
+
+[node name="Icon" parent="." index="5"]
+position = Vector2(64, 55)
+next_level_path = "res://scences/start_menu/start_menu.tscn"
+
+[node name="player" parent="." index="6"]
+position = Vector2(1573, 883)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death" index="0"]
+position = Vector2(-9, 1071)
+shape = SubResource("SegmentShape2D_quv7t")
+
+[node name="Timer" type="Timer" parent="." index="9"]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Manager" method="_on_timer_timeout"]

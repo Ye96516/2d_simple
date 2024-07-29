@@ -1,0 +1,6 @@
+extends GPUParticles2D
+
+
+
+
+
