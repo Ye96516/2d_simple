@@ -21,6 +21,7 @@ MapMananger="*res://global/map_mananger.gd"
 Audio="*res://global/audio.gd"
 ScenceChange="*res://global/scence_change.gd"
 PauseMenu="*res://scences/pause_menu/pause_menu.tscn"
+S="*res://test/傻逼吴天宇.gd"
 
 [display]
 

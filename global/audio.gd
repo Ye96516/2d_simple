@@ -44,10 +44,8 @@ func finished(audio,is_release):
 func clear():
 	if not get_children().is_empty():
 		var count=get_child_count()
-		print("shuliang",count)
 		for i in range(count):
 			var child=get_child(count-i-1)
-			print(child.name)
 			child.queue_free()
 	else:
 		return

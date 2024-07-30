@@ -37,7 +37,7 @@ texture = SubResource("CanvasTexture_or6nr")
 position = Vector2(1584, 134)
 
 [node name="player" parent="." index="5"]
-position = Vector2(1484, -158)
+position = Vector2(1361, 692)
 
 [node name="Camera2D" type="Camera2D" parent="player" index="3"]
 offset = Vector2(0, -200)
@@ -66,3 +66,8 @@ color = Color(0.851568, 0.653359, 0.650462, 1)
 [node name="有小坡的多边" type="CollisionPolygon2D" parent="StaticBody2D" index="3"]
 build_mode = 1
 polygon = PackedVector2Array(1813, 794, 1917, 790, 2023, 790, 2117, 782, 2237, 773, 2383, 770, 2506, 755, 2601, 766, 2703, 758, 2778, 756, 2951, 763, 3158, 767, 3215, 762, 3252, 753, 3311, 740, 3391, 724, 3486, 719, 3549, 730, 3602, 766, 3647, 776, 3736, 778, 3850, 779, 3939, 775, 4048, 783, 4135, 776, 4225, 783, 2763, 1153)
+
+[node name="Timer" type="Timer" parent="." index="9"]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Manager1" method="_on_timer_timeout"]
