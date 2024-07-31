@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdq3lq6kbm5k5"]
+[gd_scene load_steps=8 format=3 uid="uid://bdq3lq6kbm5k5"]
 
 [ext_resource type="Script" path="res://test/test.gd" id="1_p6mr5"]
 [ext_resource type="Texture2D" uid="uid://bfklg2jb0w0i3" path="res://test/icon.svg" id="2_vaqkt"]
-[ext_resource type="PackedScene" uid="uid://bkmpfvfpqe3c" path="res://scences/player/player.tscn" id="3_wwlmr"]
+[ext_resource type="Script" path="res://test/Area2D.gd" id="4_1nrv4"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_pvoqw"]
 a = Vector2(797, 289)
@@ -11,6 +11,12 @@ b = Vector2(-753, 298)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_t0jw8"]
 a = Vector2(-749, -39)
 b = Vector2(-753, 298)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eub18"]
+radius = 38.0526
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egmcc"]
+size = Vector2(55, 54)
 
 [node name="test" type="Node2D"]
 script = ExtResource("1_p6mr5")
@@ -33,7 +39,19 @@ position = Vector2(40, 364)
 scale = Vector2(12.0781, 1)
 texture = ExtResource("2_vaqkt")
 
-[node name="player" parent="." instance=ExtResource("3_wwlmr")]
-position = Vector2(-114, 238)
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(479, 202)
+script = ExtResource("4_1nrv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_eub18")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(235, 107)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_egmcc")
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
