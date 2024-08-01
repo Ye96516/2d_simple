@@ -6,10 +6,10 @@ uid="uid://bd12rjvyewtti"
 
 [deps]
 
-files=["res://art/tanslation/tanslation_file.zh.translation", "res://art/tanslation/tanslation_file.en.translation"]
+files=["res://art/tanslation/tanslation_file.zh.translation", "res://art/tanslation/tanslation_file.en.translation", "res://art/tanslation/tanslation_file.ru.translation"]
 
 source_file="res://art/tanslation/tanslation_file.csv"
-dest_files=["res://art/tanslation/tanslation_file.zh.translation", "res://art/tanslation/tanslation_file.en.translation"]
+dest_files=["res://art/tanslation/tanslation_file.zh.translation", "res://art/tanslation/tanslation_file.en.translation", "res://art/tanslation/tanslation_file.ru.translation"]
 
 [params]
 

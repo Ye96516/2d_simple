@@ -1,8 +1,22 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cn65p3nlrml0"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cn65p3nlrml0"]
 
 [ext_resource type="FontFile" uid="uid://bqdjytgvxwrpb" path="res://art/fonts/ToneOZ-Tsuipita-TC（仅汉字）.ttf" id="1_fcswg"]
+[ext_resource type="FontFile" uid="uid://tj5huflng3wi" path="res://art/fonts/Kremlin-Kommisar-1.ttf" id="2_j7n4u"]
+[ext_resource type="FontFile" uid="uid://bhxf8w7uj5c84" path="res://art/fonts/ofont.ru_Cakra.ttf" id="3_o11ut"]
+
+[sub_resource type="FontVariation" id="FontVariation_nhhl2"]
+fallbacks = Array[Font]([ExtResource("2_j7n4u"), ExtResource("3_o11ut")])
+base_font = ExtResource("1_fcswg")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkwdr"]
+
+[sub_resource type="FontVariation" id="FontVariation_73fki"]
+fallbacks = Array[Font]([ExtResource("3_o11ut")])
+base_font = ExtResource("1_fcswg")
+
+[sub_resource type="FontVariation" id="FontVariation_c8hva"]
+fallbacks = Array[Font]([ExtResource("2_j7n4u")])
+base_font = ExtResource("1_fcswg")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7vvo"]
 corner_radius_top_left = 10
@@ -10,11 +24,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="FontVariation" id="FontVariation_v15et"]
+
 [resource]
-Button/fonts/font = ExtResource("1_fcswg")
+Button/fonts/font = SubResource("FontVariation_nhhl2")
 Button/styles/focus = SubResource("StyleBoxEmpty_gkwdr")
-Label/fonts/font = ExtResource("1_fcswg")
-OptionButton/fonts/font = ExtResource("1_fcswg")
+Label/fonts/font = SubResource("FontVariation_73fki")
+OptionButton/fonts/font = SubResource("FontVariation_c8hva")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_i7vvo")
 PopupMenu/font_sizes/font_size = 64
-PopupMenu/fonts/font = null
+PopupMenu/fonts/font = SubResource("FontVariation_v15et")

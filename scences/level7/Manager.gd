@@ -12,8 +12,8 @@ var yun_shuLiang:Array
 var timer_time:int
 
 func _ready() -> void:
-	
-	TranslationServer.set_locale("en")
+
+	TranslationServer.set_locale("ru")
 	$"../StaticBody2D/Polygon2D2".polygon=cp.polygon
 	pass
 func _draw() -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b02ce7xw8xk48"]
+[gd_scene load_steps=16 format=3 uid="uid://b02ce7xw8xk48"]
 
 [ext_resource type="PackedScene" uid="uid://d1ub8gfqurium" path="res://scences/levels_normal/levels.tscn" id="1_7mard"]
 [ext_resource type="Script" path="res://scences/level7/Manager.gd" id="2_3nclf"]
 [ext_resource type="Script" path="res://scences/level7/pics.gd" id="3_rgsae"]
+[ext_resource type="Theme" uid="uid://cn65p3nlrml0" path="res://data/new_theme.tres" id="4_dwvbn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_or6nr"]
 
@@ -27,6 +28,8 @@ b = Vector2(1554, 211)
 [sub_resource type="CanvasTexture" id="CanvasTexture_xaqui"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ohatw"]
+
+[sub_resource type="FontVariation" id="FontVariation_ok2d0"]
 
 [node name="level7" instance=ExtResource("1_7mard")]
 
@@ -65,7 +68,7 @@ visible = false
 position = Vector2(-322, 218)
 
 [node name="player" parent="." index="5"]
-position = Vector2(1803, 417)
+position = Vector2(468, 645)
 
 [node name="Camera2D" type="Camera2D" parent="player" index="3"]
 offset = Vector2(0, -200)
@@ -158,6 +161,16 @@ modulate = Color(0.893015, 0.726327, 0.390315, 1)
 position = Vector2(-594, 235)
 scale = Vector2(64, 64)
 texture = SubResource("CanvasTexture_ohatw")
+
+[node name="test" type="Label" parent="." index="12"]
+offset_left = 262.0
+offset_top = 425.0
+offset_right = 770.0
+offset_bottom = 763.0
+theme = ExtResource("4_dwvbn")
+theme_override_fonts/font = SubResource("FontVariation_ok2d0")
+theme_override_font_sizes/font_size = 128
+text = "测试"
 
 [connection signal="body_entered" from="Detecter" to="Manager1" method="_on_detecter_body_entered"]
 [connection signal="timeout" from="Timer" to="Manager1" method="_on_timer_timeout"]
